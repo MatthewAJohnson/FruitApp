@@ -2,7 +2,7 @@ package com.example.fruitapp
 
 import com.google.gson.annotations.SerializedName
 
-data class FruitList (
-    @SerializedName("fruit")
-    val fruit: List<Fruit?>?
+data class Fruit(
+    @SerializedName("type")
+    val type : String?
 )
