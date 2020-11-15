@@ -3,7 +3,6 @@ package com.example.fruitapp.presentation
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.fruitapp.Either
 import com.example.fruitapp.models.Fruit
-import com.example.fruitapp.models.FruitList
 import com.example.fruitapp.remote.RemoteApiService
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -18,18 +17,18 @@ import org.junit.Rule
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class FruitViewModelShould(){
+class FruitViewModelShould() {
 
     @get:Rule
     var instantExecutionRule = InstantTaskExecutorRule()
 
     private lateinit var viewModel: FruitViewModel
-    private lateinit var fruitApi : RemoteApiService
+    private lateinit var fruitApi: RemoteApiService
+
     @Before
-    fun setup(){
+    fun setup() {
         fruitApi = mockk()
         viewModel = FruitViewModel(fruitApi)
-
     }
 
     @Test
@@ -38,10 +37,10 @@ class FruitViewModelShould(){
         coEvery { fruitApi.getFruitList() } returns Either.Right(fruitList)
         viewModel.getFruitList()
         awaitCoroutineCompletion(viewModel)
-        assertThat(viewModel.fruitList.value!!, equalTo(fruitList))
+        assertThat(viewModel.fruitList.value!!.count(), equalTo(1))
     }
 
-    fun awaitCoroutineCompletion(viewModel: FruitViewModel){
+    fun awaitCoroutineCompletion(viewModel: FruitViewModel) {
         runBlocking {
             viewModel.scope.coroutineContext[Job]!!.children.forEach {
                 it.join()
