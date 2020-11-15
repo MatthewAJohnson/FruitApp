@@ -9,5 +9,5 @@
         android:id="@+id/FirstFragment"
         android:name="com.example.fruitapp.FruitList"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_fruit_list" />
 </navigation>
