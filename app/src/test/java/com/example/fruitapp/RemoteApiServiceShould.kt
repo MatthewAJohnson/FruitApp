@@ -1,9 +1,11 @@
 package com.example.fruitapp
 
+import com.example.fruitapp.models.FruitList
+import com.example.fruitapp.remote.ApiService
+import com.example.fruitapp.remote.RemoteApiService
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.CoreMatchers.equalTo
 import org.junit.Assert.*

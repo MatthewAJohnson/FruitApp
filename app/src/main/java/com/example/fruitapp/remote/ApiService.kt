@@ -1,5 +1,6 @@
-package com.example.fruitapp
+package com.example.fruitapp.remote
 
+import com.example.fruitapp.models.FruitList
 import retrofit2.Response
 import retrofit2.http.GET
 

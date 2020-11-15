@@ -31,6 +31,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -45,6 +49,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+   // testImplementation 'android.arch.core:core-testing:1.1.0'
+
     testImplementation 'junit:junit:4.13.1'
     testImplementation 'io.mockk:mockk:1.10.0'
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.1'

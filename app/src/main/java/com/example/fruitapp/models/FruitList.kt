@@ -1,5 +1,6 @@
-package com.example.fruitapp
+package com.example.fruitapp.models
 
+import com.example.fruitapp.models.Fruit
 import com.google.gson.annotations.SerializedName
 
 data class FruitList (
