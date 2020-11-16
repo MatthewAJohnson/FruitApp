@@ -32,11 +32,10 @@ class FruitListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        fruit_recycler.adapter = adapter
         fruitViewModel.getFruitList()
         setupObservers()
-        fruit_recycler.adapter = adapter
         refreshFruitListerner()
-
     }
 
     private fun setupObservers() {

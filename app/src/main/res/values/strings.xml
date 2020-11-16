@@ -12,4 +12,8 @@
     <string name="refresh_fruit_data">Refresh Fruit Data</string>
     <string name="server_failure">Server failure</string>
     <string name="fruit_refreshed">Refreshing Fruit!</string>
+    <string name="fruit_name_title">Fruit Name</string>
+    <string name="fruit_weight">Fruit Weight:</string>
+    <string name="fruit_price">Fruit Price:</string>
+    <string name="back">Back</string>
 </resources>

@@ -10,4 +10,18 @@
         android:name="com.example.fruitapp.ui.FruitListFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_fruit_list" />
+    <fragment
+        android:id="@+id/fruitDetailFragment"
+        android:name="com.example.fruitapp.FruitDetailFragment"
+        android:label="fragment_fruit_detail"
+        tools:layout="@layout/fragment_fruit_detail" >
+        <action
+            android:id="@+id/action_fruitDetailFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <argument
+            android:name="fruit"
+            app:argType="com.example.fruitapp.models.Fruit"
+            app:nullable="true" />
+    </fragment>
+    <action android:id="@+id/action_global_fruitDetailFragment" app:destination="@id/fruitDetailFragment" />
 </navigation>
