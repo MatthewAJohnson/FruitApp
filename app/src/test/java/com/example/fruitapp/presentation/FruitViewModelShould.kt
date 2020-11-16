@@ -2,8 +2,8 @@ package com.example.fruitapp.presentation
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.fruitapp.Either
-import com.example.fruitapp.models.Fruit
 import com.example.fruitapp.remote.RemoteApiService
+import com.example.fruitapp.models.Fruit
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -33,7 +33,7 @@ class FruitViewModelShould() {
 
     @Test
     fun `retrieve list of fruit`() = runBlockingTest {
-        val fruitList = listOf(Fruit(""))
+        val fruitList = listOf(Fruit("","",""))
         coEvery { fruitApi.getFruitList() } returns Either.Right(fruitList)
         viewModel.getFruitList()
         awaitCoroutineCompletion(viewModel)

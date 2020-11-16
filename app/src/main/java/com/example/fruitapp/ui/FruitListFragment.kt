@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.fruitapp.R
-import com.example.fruitapp.models.Fruit
 import com.example.fruitapp.presentation.FruitViewModel
+import com.example.fruitapp.models.Fruit
 import kotlinx.android.synthetic.main.fragment_fruit_list.*
 
 

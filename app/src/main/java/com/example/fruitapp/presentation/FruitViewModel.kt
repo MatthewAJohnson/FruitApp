@@ -4,8 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.fruitapp.Failure
 import com.example.fruitapp.Providers
-import com.example.fruitapp.models.Fruit
 import com.example.fruitapp.remote.RemoteApiService
+import com.example.fruitapp.models.Fruit
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel

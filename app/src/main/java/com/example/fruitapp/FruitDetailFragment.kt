@@ -26,7 +26,9 @@ class FruitDetailFragment : Fragment() {
 
     private fun setFruitValues() {
         args.fruit?.let {
-            fruit_value.text = it.type ?: ""
+            fruit_value.text = it.type
+            price_value.text = it.price
+            weight_value.text = it.weight
         }
     }
 
