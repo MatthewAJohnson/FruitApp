@@ -3,6 +3,8 @@ package com.example.fruitapp.ui
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -33,6 +35,8 @@ class FruitListFragment : Fragment() {
         fruitViewModel.getFruitList()
         setupObservers()
         fruit_recycler.adapter = adapter
+        refreshFruitListerner()
+
     }
 
     private fun setupObservers() {
@@ -47,9 +51,18 @@ class FruitListFragment : Fragment() {
     private fun updateFruitList(it: List<Fruit>) {
         adapter.fruits = it
         adapter.notifyDataSetChanged()
+        fruit_recycler.visibility = VISIBLE
     }
 
     private fun handleServerFailure() {
-        Toast.makeText(context, "Server failure", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, getString(R.string.server_failure), Toast.LENGTH_SHORT).show()
+    }
+
+    private fun refreshFruitListerner() {
+        refresh_button.setOnClickListener {
+            fruitViewModel.getFruitList()
+            Toast.makeText(context, getString(R.string.fruit_refreshed), Toast.LENGTH_SHORT).show()
+            fruit_recycler.visibility = INVISIBLE
+        }
     }
 }
