@@ -17,6 +17,7 @@ class AnalyticsViewModel(private val fruitApi: RemoteApiService = Providers.remo
     fun logErrors(message: String?) {
         scope.launch {
             fruitApi.getErrorData(message ?: "there was an error")
+                .either({ serverFailure.postValue(it) }, {})
         }
     }
 

@@ -24,9 +24,17 @@ class AnalyticsViewModelShould : AndroidUnitTest() {
     }
 
     @Test
-    fun `post server failure when there is an error`() = runBlockingTest {
+    fun `post server failure when there is an error logging page load times`() = runBlockingTest {
         coEvery { fruitApi.getPageLoadTime(any()) } returns Either.Left(Failure.ServerFailure)
         viewModel.logLoadTime(300)
+        awaitCoroutineCompletion(viewModel)
+        assertThat(viewModel.serverFailure.value!!, IsEqual.equalTo(Failure.ServerFailure))
+    }
+
+    @Test
+    fun `post server failure when there is an error in error logging`() = runBlockingTest {
+        coEvery { fruitApi.getErrorData(any()) } returns Either.Left(Failure.ServerFailure)
+        viewModel.logErrors("there was an error")
         awaitCoroutineCompletion(viewModel)
         assertThat(viewModel.serverFailure.value!!, IsEqual.equalTo(Failure.ServerFailure))
     }
