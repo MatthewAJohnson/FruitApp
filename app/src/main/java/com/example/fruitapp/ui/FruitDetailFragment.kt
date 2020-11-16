@@ -33,6 +33,6 @@ class FruitDetailFragment : BaseFragment() {
     }
 
     private fun backButtonListener() {
-        back_button.setOnClickListener { findNavController().navigate(R.id.action_fruitDetailFragment_to_FirstFragment) }
+        back_button.setOnClickListener { findNavController().popBackStack() }
     }
 }
