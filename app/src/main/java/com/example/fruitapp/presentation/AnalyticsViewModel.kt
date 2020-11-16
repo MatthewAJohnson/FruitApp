@@ -10,15 +10,14 @@ class AnalyticsViewModel(private val fruitApi: RemoteApiService = Providers.remo
     fun logLoadTime(loadTime: Long) {
         scope.launch {
             fruitApi.getPageLoadTime(loadTime.toString())
-                .either({ serverFailure.postValue(it) }, {})
+                .either(handleFailure(), {})
         }
     }
 
     fun logErrors(message: String?) {
         scope.launch {
             fruitApi.getErrorData(message ?: "there was an error")
-                .either({ serverFailure.postValue(it) }, {})
+                .either(handleFailure(), {})
         }
     }
-
 }

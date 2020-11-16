@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/FruitListFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/FruitListFragment"
         android:name="com.example.fruitapp.ui.FruitListFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_fruit_list" />
@@ -15,9 +15,6 @@
         android:name="com.example.fruitapp.ui.FruitDetailFragment"
         android:label="fragment_fruit_detail"
         tools:layout="@layout/fragment_fruit_detail" >
-        <action
-            android:id="@+id/action_fruitDetailFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
         <argument
             android:name="fruit"
             app:argType="com.example.fruitapp.models.Fruit"

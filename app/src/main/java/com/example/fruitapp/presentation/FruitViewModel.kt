@@ -19,9 +19,6 @@ class FruitViewModel(private val fruitApi: RemoteApiService = Providers.remoteAp
         }
     }
 
-    private fun handleFailure(): (Failure) -> Unit =
-        { serverFailure.postValue(it) }
-
     private fun handleFruitList(): (List<Fruit>) -> Unit =
         { fruitList.postValue(it) }
 }

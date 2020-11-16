@@ -15,4 +15,7 @@ open class BaseViewModel : ViewModel() {
         super.onCleared()
         scope.cancel()
     }
+
+    fun handleFailure(): (Failure) -> Unit =
+        { serverFailure.postValue(it) }
 }
