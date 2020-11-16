@@ -40,7 +40,7 @@ class FruitViewModelShould() {
         assertThat(viewModel.fruitList.value!!.count(), equalTo(1))
     }
 
-    fun awaitCoroutineCompletion(viewModel: FruitViewModel) {
+    private fun awaitCoroutineCompletion(viewModel: FruitViewModel) {
         runBlocking {
             viewModel.scope.coroutineContext[Job]!!.children.forEach {
                 it.join()

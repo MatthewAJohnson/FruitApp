@@ -1,7 +1,6 @@
 package com.example.fruitapp
 
 import android.app.Application
-import android.content.Context
 import com.example.fruitapp.remote.RemoteApiService
 
 class FruitApplication :Application() {

@@ -1,5 +1,6 @@
 package com.example.fruitapp
 
+import com.example.fruitapp.models.Fruit
 import com.example.fruitapp.models.FruitList
 import com.example.fruitapp.remote.ApiService
 import com.example.fruitapp.remote.RemoteApiService
@@ -26,10 +27,10 @@ class RemoteApiServiceShould {
 
     @Test
     fun `return an empty list of fruit`() = runBlockingTest {
-        val fruit = FruitList(emptyList())
+        val fruit = FruitList(listOf<Fruit>())
         coEvery { apiService.getFruitList() } returns success(fruit)
         val response = remoteApiService.getFruitList()
         assertThat(response.isRight, equalTo(true))
-        assertThat(response.right, equalTo(fruit))
+        assertThat(response.right.count(), equalTo(0))
     }
 }
