@@ -13,9 +13,6 @@ class RetrofitBuilder {
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
             .baseUrl(baseUrl).build()
 
-    private fun createOkHttpClient(): OkHttpClient {
-        val httpClient = OkHttpClient.Builder()
-        return httpClient.build()
-    }
+    private fun createOkHttpClient(): OkHttpClient = OkHttpClient.Builder().build()
 
 }

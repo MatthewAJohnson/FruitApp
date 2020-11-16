@@ -20,10 +20,7 @@ import org.junit.Rule
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class FruitViewModelShould() {
-
-    @get:Rule
-    var instantExecutionRule = InstantTaskExecutorRule()
+class FruitViewModelShould : AndroidUnitTest() {
 
     private lateinit var viewModel: FruitViewModel
     private lateinit var fruitApi: RemoteApiService
@@ -49,14 +46,5 @@ class FruitViewModelShould() {
         viewModel.getFruitList()
         awaitCoroutineCompletion(viewModel)
         assertThat(viewModel.serverFailure.value!!, equalTo(ServerFailure))
-    }
-
-    private fun awaitCoroutineCompletion(viewModel: FruitViewModel) {
-        runBlocking {
-            viewModel.scope.coroutineContext[Job]!!.children.forEach {
-                it.join()
-                it.children.forEach { children -> children.join() }
-            }
-        }
     }
 }
