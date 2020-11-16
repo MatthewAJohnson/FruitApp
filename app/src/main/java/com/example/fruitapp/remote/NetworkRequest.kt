@@ -7,18 +7,18 @@ import com.example.fruitapp.Failure.ServerFailure
 import retrofit2.Response
 import java.io.IOException
 
-suspend fun <T> execute(getResponse:suspend ()->Response<T>) : Either<Failure, T> =
+suspend fun <T> execute(getResponse: suspend () -> Response<T>): Either<Failure, T> =
     try {
         parse(getResponse())
-    } catch (exception: IOException){
+    } catch (exception: IOException) {
         Left(ServerFailure)
     }
 
 private fun <T> parse(response: Response<T>): Either<Failure, T> =
-    if(response.isSuccessful){
+    if (response.isSuccessful) {
         response.body()?.let {
             Right(it)
-        } ?: Left (ServerFailure)
+        } ?: Left(ServerFailure)
     } else {
         Left(ServerFailure)
     }

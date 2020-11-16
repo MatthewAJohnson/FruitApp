@@ -15,11 +15,8 @@ open class BaseFragment :Fragment() {
         analyticsViewModel = ViewModelProvider(this).get(AnalyticsViewModel::class.java)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        logLoadTime()
-    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = logLoadTime()
 
-    private fun logLoadTime() {
+    private fun logLoadTime() =
         analyticsViewModel.logLoadTime(System.currentTimeMillis() - startLoading)
-    }
 }

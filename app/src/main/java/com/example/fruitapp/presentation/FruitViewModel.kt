@@ -14,9 +14,14 @@ class FruitViewModel(private val fruitApi: RemoteApiService = Providers.remoteAp
     fun getFruitList() {
         scope.launch {
             val startTime = System.currentTimeMillis()
-            fruitApi.getFruitList().either({ serverFailure.postValue(it) },
-                { fruitList.postValue(it) })
+            fruitApi.getFruitList().either(handleFailure(), handleFruitList())
             fruitApi.getNetworkLoadTime((System.currentTimeMillis() - startTime).toString())
         }
     }
+
+    private fun handleFailure(): (Failure) -> Unit =
+        { serverFailure.postValue(it) }
+
+    private fun handleFruitList(): (List<Fruit>) -> Unit =
+        { fruitList.postValue(it) }
 }

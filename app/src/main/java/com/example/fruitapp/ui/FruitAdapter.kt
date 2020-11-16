@@ -20,16 +20,13 @@ class FruitAdapter(var fruits: List<Fruit>) : RecyclerView.Adapter<FruitViewHold
         }
     }
 
-    private fun FruitViewHolder.navigateToDetails(it: View) {
-        it.findNavController().navigate(
-            R.id.action_global_fruitDetailFragment,
-            FruitDetailFragmentArgs(fruits[adapterPosition]).toBundle()
-        )
-    }
+    private fun FruitViewHolder.navigateToDetails(it: View) = it.findNavController().navigate(
+        R.id.action_global_fruitDetailFragment,
+        FruitDetailFragmentArgs(fruits[adapterPosition]).toBundle()
+    )
 
-    override fun onBindViewHolder(holder: FruitViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FruitViewHolder, position: Int) =
         holder.bind(fruits[position].type)
-    }
 
     override fun getItemCount(): Int = fruits.count()
 

@@ -1,8 +1,8 @@
 package com.example.fruitapp.remote.mappers
 
 import com.example.fruitapp.models.Fruit
-import com.example.fruitapp.models.FruitResult
 import com.example.fruitapp.models.FruitList
+import com.example.fruitapp.models.FruitResult
 
 fun FruitList.fruit(): List<Fruit> = this.fruit?.map {
     convertToFruit(it)
@@ -16,18 +16,14 @@ fun convertToFruit(fruit: FruitResult?): Fruit {
     )
 }
 
-fun convertCurrency(price: Int?): String {
-    return price?.let {
-        val result = String.format("%.2f", it / 100f)
-        "£$result"
-    } ?: "£0.00"
-}
+fun convertCurrency(price: Int?): String = price?.let {
+    val result = String.format("%.2f", it / 100f)
+    "£$result"
+} ?: "£0.00"
 
-fun convertWeight(weight: Int?): String {
-    return weight?.let {
-        val result = String.format("%.2f", it / 100f)
-        "$result KG"
-    } ?: "0.00 KG"
-}
+fun convertWeight(weight: Int?): String = weight?.let {
+    val result = String.format("%.2f", it / 100f)
+    "$result KG"
+} ?: "0.00 KG"
 
 

@@ -49,9 +49,8 @@ class FruitListFragment : BaseFragment() {
         fruit_recycler.visibility = VISIBLE
     }
 
-    private fun handleServerFailure() {
+    private fun handleServerFailure() =
         Toast.makeText(context, getString(R.string.server_failure), Toast.LENGTH_SHORT).show()
-    }
 
     private fun refreshFruitListerner() {
         refresh_button.setOnClickListener {
